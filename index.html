@@ -1,68 +1,118 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yiğidolar | Sivasspor Taraftar Sayfası</title>
+    <title>Sivasspor | Yiğidoların Dünyası</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --sivas-kirmizi: #d71920;
+            --sivas-beyaz: #ffffff;
+            --dark-bg: #1a1a1a;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            color: #333;
         }
+
         header {
-            background-color: #d71920; /* Sivasspor Kırmızısı */
+            background: linear-gradient(rgba(215, 25, 32, 0.9), rgba(215, 25, 32, 0.9)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=1000') no-repeat center/cover;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             color: white;
-            padding: 20px 0;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
             text-align: center;
-            border-bottom: 5px solid #ffffff;
         }
+
+        header h1 { font-size: 4rem; margin: 0; letter-spacing: 5px; }
+
         nav {
-            background-color: #fff;
-            padding: 10px;
+            background: var(--dark-bg);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+
         nav a {
+            color: white;
             text-decoration: none;
-            color: #d71920;
-            font-weight: bold;
-            margin: 0 15px;
+            margin: 0 20px;
+            font-weight: 600;
+            transition: 0.3s;
         }
-        .container {
-            width: 80%;
-            margin: 20px auto;
+
+        nav a:hover { color: var(--sivas-kirmizi); }
+
+        .container { max-width: 1200px; margin: auto; padding: 20px; }
+
+        .section-title {
+            text-align: center;
+            color: var(--sivas-kirmizi);
+            font-size: 2.5rem;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--sivas-kirmizi);
+            margin: 10px auto;
+        }
+
+        /* Kart Yapısı */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
             background: white;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            border-bottom: 4px solid var(--sivas-kirmizi);
         }
-        h2 {
-            color: #d71920;
-            border-left: 5px solid #d71920;
-            padding-left: 10px;
-        }
-        .stats-table {
+
+        .card:hover { transform: translateY(-10px); }
+
+        .card i { font-size: 3rem; color: var(--sivas-kirmizi); margin-bottom: 15px; }
+
+        /* Kadro Tablosu */
+        table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        .stats-table th, .stats-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        .stats-table th {
-            background-color: #d71920;
-            color: white;
-        }
+
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: var(--sivas-kirmizi); color: white; }
+        tr:hover { background: #fff5f5; }
+
         footer {
+            background: var(--dark-bg);
+            color: white;
             text-align: center;
-            padding: 20px;
-            font-size: 0.9em;
-            color: #666;
+            padding: 30px;
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -70,5 +120,95 @@
 
 <header>
     <h1>SİVASSPOR</h1>
-    <p>Gönüllerin Şampiyonu, Yiğidoların Gururu!</p>
+    <p>1967'den Beri Sönmeyen Bir Meşale!</p>
 </header>
+
+<nav>
+    <a href="#tarih">Tarihçe</a>
+    <a href="#efsaneler">Efsaneler</a>
+    <a href="#yildizlar">Gelen Yıldızlar</a>
+    <a href="#kadro">Güncel Kadro (2026)</a>
+</nav>
+
+<div class="container">
+    
+    <section id="tarih">
+        <h2 class="section-title">Şanlı Tarihimiz</h2>
+        <div class="card" style="text-align: left;">
+            <p>1967 yılında kurulan Sivasspor, Anadolu'nun en dirençli takımlarından biridir. 2008-2009 sezonunda Süper Lig'i 2. sırada bitirerek "Şampiyonluk Anadolu'ya geliyor" dedirtmiş, 2021-2022 sezonunda ise <b>Türkiye Kupası'nı</b> müzesine götürerek tarih yazmıştır.</p>
+        </div>
+    </section>
+
+    <section id="efsaneler">
+        <h2 class="section-title">Kulüp Efsaneleri</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-crown"></i>
+                <h3>Mehmet Yıldız</h3>
+                <p>Kaptan, gol makinesi ve fizik gücün simgesi. Kulübün en golcü isimlerinden.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Hayrettin Yerlikaya</h3>
+                <p>300'den fazla maçta forma giymiş gerçek bir sadakat abidesi.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-magic"></i>
+                <h3>Pini Balili</h3>
+                <p>Hızı ve enerjisiyle taraftarın sevgilisi olan İsrailli yıldız.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="yildizlar">
+        <h2 class="section-title">Sivas'tan Geçen Dünya Yıldızları</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-star"></i>
+                <h3>Cicinho</h3>
+                <p>Real Madrid ve Roma forması giymiş dünya çapında bir bek.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-star"></i>
+                <h3>Robinho</h3>
+                <p>Sivas meydanında simit yiyen bir dünya süperstarı!</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-star"></i>
+                <h3>Aatif Chahechouhe</h3>
+                <p>Süper Lig gol kralı ünvanını Sivas formasıyla kazandı.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="kadro">
+        <h2 class="section-title">Güncel Kadro (2025-2026)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Oyuncu</th>
+                    <th>Mevki</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>35</td><td>Ali Şaşal Vural</td><td>Kaleci</td></tr>
+                <tr><td>58</td><td>Uğur Çiftçi</td><td>Defans</td></tr>
+                <tr><td>9</td><td>Rey Manaj</td><td>Forvet</td></tr>
+                <tr><td>8</td><td>Charilaos Charisis</td><td>Orta Saha</td></tr>
+                <tr><td>19</td><td>Emre Gökay</td><td>Forvet/Kanat</td></tr>
+                <tr><td>3</td><td>Okan Erdoğan</td><td>Defans</td></tr>
+                <tr><td>10</td><td>Jonathan Okoronkwo</td><td>Forvet</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+</div>
+
+<footer>
+    <p>Bu Sayfa Bir Yiğido Tarafından Tasarlandı | 2026</p>
+    <p><i class="fas fa-heart" style="color:red"></i> Sivas'a Selam Olsun!</p>
+</footer>
+
+</body>
+</html>
